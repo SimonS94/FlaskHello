@@ -1,0 +1,20 @@
+name: Build Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build and push Docker image
+        run: |
+          curl -X POST https://${{ secrets.SERVER_URL }}/build \
+               -H "Content-Type: application/json" \
+               -d '{"repository": "simon/FlaskHelloWorld:v1.0", "git_repo_url": "https://github.com/SimonS94/FlaskHello", "git_branch": "main"}'
