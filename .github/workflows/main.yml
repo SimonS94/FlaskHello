@@ -17,4 +17,4 @@ jobs:
         run: |
           curl -X POST https://${{ secrets.SERVER_URL }}/build \
                -H "Content-Type: application/json" \
-               -d '{"repository": "simon/FlaskHelloWorld:v1.0", "git_repo_url": "https://github.com/SimonS94/FlaskHello", "git_branch": "main"}'
+               -d '{"repository": "simon/flaskhello:v1.0", "git_repo_url": "https://github.com/SimonS94/FlaskHello", "git_branch": "main"}'
